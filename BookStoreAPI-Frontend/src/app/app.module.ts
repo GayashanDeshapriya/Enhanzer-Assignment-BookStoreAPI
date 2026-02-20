@@ -1,0 +1,50 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LandingComponent } from './features/components/landing/landing.component';
+import { BookListComponent } from './features/components/book-list/book-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
+import { RouterModule } from '@angular/router';
+import { BookFormComponent } from './features/components/book-form/book-form.component';
+import { BookEditComponent } from './features/components/book-edit/book-edit.component';
+import { BookCreateComponent } from './features/components/book-create/book-create.component';
+import { ToastrModule } from 'ngx-toastr';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    BookListComponent,
+    BookFormComponent,
+    BookEditComponent,
+    BookCreateComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxExtendedPdfViewerModule,
+    RouterModule,
+    ToastrModule.forRoot({
+      positionClass:      'toast-top-right',
+      timeOut:            3500,
+      progressBar:        true,
+      progressAnimation:  'decreasing',
+      closeButton:        true,
+      tapToDismiss:       true,
+      newestOnTop:        true,
+      preventDuplicates:  true,
+      countDuplicates:    true,
+      maxOpened:          5
+    })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
